@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type='text/javascript' scr='js-repaso/fetch.js'>
+
+            const url = 'https://jsonplaceholder.typicode.com/users'
+            
+            const fn = async()=>{
+    const response = await fetch(url,{
+        method: 'POST',
+        headers:{
+            'Content-Type':'application/json',
+            'Authorization':'Bearer aquivaeltoken'
+        },
+        body: JSON.stringify({
+            name: 'hola',
+            website:'google.com'
+        })
+    })
+    const data = await response.json()
+    console.log(data);
+}
+fn()
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
