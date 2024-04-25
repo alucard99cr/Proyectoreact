@@ -13,6 +13,7 @@ class App extends Component {
     ],
     carro:[
     ],
+    esCarrovisible:false,
   }
   agregarAlCarro = (producto) =>{
     const {carro} = this.state
@@ -30,10 +31,21 @@ class App extends Component {
       })
     })
   }
+  mostrarCarro = () =>{
+    if(!this.state.carro.length){
+      return
+    }
+
+    this.setState({esCarrovisible:!this.state.esCarrovisible})
+  }
   render(){
+    const {esCarrovisible}=this.state
     return(
       <div>
-        <Navbar carro={this.state.carro}/>
+        <Navbar 
+        carro={this.state.carro} 
+        esCarrovisible={esCarrovisible} 
+        mostrarCarro={this.mostrarCarro}/>
         <Layout>
         <Title/>
           <Productos
