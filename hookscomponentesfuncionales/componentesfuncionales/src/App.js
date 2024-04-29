@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { useRef} from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// como usar document.get element by id 
+const App = () =>{
+    const ref = useRef()
+    const inputRef = useRef()
+    const click =() =>{
+        console.log(ref.current.clientHeight)
+    }
+    const focus = ()=>{
+        inputRef.current.focus()
+    }
+    return(
+        <div >
+            <input ref={inputRef} type="text" />
+            <button onClick={focus}>Focus</button>
+            <div onClick={click} ref={ref}>lala</div>
+        </div>
+    )
 }
 
-export default App;
+export default App
